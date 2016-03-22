@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShapesDB" Class="ShapesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=ShapesDB;Integrated Security=True" SettingsObjectName="ShapesApp3.Properties.Settings" SettingsPropertyName="ShapesDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ShapeTypes" Member="ShapeTypes">
+    <Type Name="ShapeType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="ShapeType_Shape" Member="Shapes" ThisKey="Id" OtherKey="ShapeTypeId" Type="Shape" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shapes" Member="Shapes">
+    <Type Name="Shape">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShapeTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="A" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="B" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="R" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ShapeType_Shape" Member="ShapeType" ThisKey="ShapeTypeId" OtherKey="Id" Type="ShapeType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShapesDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ShapesDBModelStoreContainer">
+    <EntitySet Name="Shapes" EntityType="ShapesDBModel.Store.Shapes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShapeTypes" EntityType="ShapesDBModel.Store.ShapeTypes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Shapes_ShapeTypes" Association="ShapesDBModel.Store.FK_Shapes_ShapeTypes">
+      <End Role="ShapeTypes" EntitySet="ShapeTypes" />
+      <End Role="Shapes" EntitySet="Shapes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Shapes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShapeTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="A" Type="float" />
+    <Property Name="B" Type="float" />
+    <Property Name="R" Type="float" />
+    <Property Name="S" Type="float" />
+  </EntityType>
+  <EntityType Name="ShapeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Shapes_ShapeTypes">
+    <End Role="ShapeTypes" Type="ShapesDBModel.Store.ShapeTypes" Multiplicity="1" />
+    <End Role="Shapes" Type="ShapesDBModel.Store.Shapes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShapeTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shapes">
+        <PropertyRef Name="ShapeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

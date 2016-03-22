@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShapesDBModelStoreContainer" CdmEntityContainer="ShapesDBEntities">
+    <EntitySetMapping Name="Shapes">
+      <EntityTypeMapping TypeName="ShapesDBModel.Shape">
+        <MappingFragment StoreEntitySet="Shapes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShapeTypeId" ColumnName="ShapeTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="R" ColumnName="R" />
+          <ScalarProperty Name="S" ColumnName="S" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShapeTypes">
+      <EntityTypeMapping TypeName="ShapesDBModel.ShapeType">
+        <MappingFragment StoreEntitySet="ShapeTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

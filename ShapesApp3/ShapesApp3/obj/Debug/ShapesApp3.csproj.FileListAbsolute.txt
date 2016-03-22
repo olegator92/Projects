@@ -1,0 +1,12 @@
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\bin\Debug\ShapesApp3.exe.config
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.csprojResolveAssemblyReference.cache
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.Properties.Resources.resources
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.csproj.GenerateResource.Cache
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\bin\Debug\ShapesApp3.exe
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\bin\Debug\ShapesApp3.pdb
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\bin\Debug\EntityFramework.dll
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\bin\Debug\EntityFramework.xml
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.exe
+d:\administrator\documents\visual studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.pdb
+D:\Administrator\Documents\Visual Studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.DialogForm.resources
+D:\Administrator\Documents\Visual Studio 2012\Projects\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.Form1.resources

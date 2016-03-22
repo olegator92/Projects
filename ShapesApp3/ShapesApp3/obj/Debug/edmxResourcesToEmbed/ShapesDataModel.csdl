@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShapesDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ShapesDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Shapes" EntityType="ShapesDBModel.Shape" />
+    <EntitySet Name="ShapeTypes" EntityType="ShapesDBModel.ShapeType" />
+    <AssociationSet Name="FK_Shapes_ShapeTypes" Association="ShapesDBModel.FK_Shapes_ShapeTypes">
+      <End Role="ShapeTypes" EntitySet="ShapeTypes" />
+      <End Role="Shapes" EntitySet="Shapes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Shape">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ShapeTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="A" Type="Double" />
+    <Property Name="B" Type="Double" />
+    <Property Name="R" Type="Double" />
+    <Property Name="S" Type="Double" />
+    <NavigationProperty Name="ShapeType" Relationship="ShapesDBModel.FK_Shapes_ShapeTypes" FromRole="Shapes" ToRole="ShapeTypes" />
+  </EntityType>
+  <EntityType Name="ShapeType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Shapes" Relationship="ShapesDBModel.FK_Shapes_ShapeTypes" FromRole="ShapeTypes" ToRole="Shapes" />
+  </EntityType>
+  <Association Name="FK_Shapes_ShapeTypes">
+    <End Role="ShapeTypes" Type="ShapesDBModel.ShapeType" Multiplicity="1" />
+    <End Role="Shapes" Type="ShapesDBModel.Shape" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShapeTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shapes">
+        <PropertyRef Name="ShapeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
