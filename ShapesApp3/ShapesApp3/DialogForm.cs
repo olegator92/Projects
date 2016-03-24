@@ -12,28 +12,45 @@ namespace ShapesApp3
 {
     public partial class DialogForm : Form
     {
-        public DialogForm(string shapeName, string a, string b, string r, string s)
+
+        public DialogForm(Square square)
         {
             InitializeComponent();
-            label1.Text = shapeName;
-            if (r != "")
-            {
-                label2.Text = "r = " + r;
-                label3.Text = "s = " + s;
-                label4.Hide();
-            }
-            else if (b != "")
-            {
-                label2.Text = "a = " + a;
-                label3.Text = "b = " + b;
-                label4.Text = "s = " + s;
-            }
-            else
-            {
-                label2.Text = "a = " + a;
-                label3.Text = "s = " + s;
-                label4.Hide();
-            }
+
+            label1.Text = "Имя фигуры: " + square.ShapeName;
+            label2.Text = "A = " + square.A;
+            label3.Text = "S = " + square.S;
+            label4.Hide();
+        }
+
+        public DialogForm(Rectangle rectangle)
+        {
+            InitializeComponent();
+
+            label1.Text = "Имя фигуры: " + rectangle.ShapeName;
+            label2.Text = "A = " + rectangle.A;
+            label3.Text = "B = " + rectangle.B;
+            label4.Text = "S = " + rectangle.S;
+        }
+
+        public DialogForm(RightTriangle rightTrectangle)
+        {
+            InitializeComponent();
+
+            label1.Text = "Имя фигуры: " + rightTrectangle.ShapeName;
+            label2.Text = "A = " + rightTrectangle.A;
+            label3.Text = "B = " + rightTrectangle.B;
+            label4.Text = "S = " + rightTrectangle.S;
+        }
+
+        public DialogForm(Circle circle)
+        {
+            InitializeComponent();
+
+            label1.Text = "Имя фигуры: " + circle.ShapeName;
+            label2.Text = "R = " + circle.R;
+            label3.Text = "S = " + circle.S;
+            label4.Hide();
         }
     }
 }

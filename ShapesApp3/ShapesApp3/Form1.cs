@@ -12,7 +12,92 @@ using ShapesApp3.Enums;
 
 namespace ShapesApp3
 {
-    
+    public abstract class ShapeClass
+    {
+        public string ShapeName { get; set; }
+        public double S { get; set; }
+
+        public virtual void DisplayShape()
+        {
+        }
+    }
+
+    public class Square : ShapeClass
+    {
+        public double A { get; set; }
+
+        public Square(string name, double a)
+        {
+            this.ShapeName = name;
+            this.A = a;
+            this.S = a*a;
+        }
+
+        public override void DisplayShape()
+        {
+            var form = new DialogForm(this);
+            form.ShowDialog();
+        }
+    }
+
+    public class Rectangle : ShapeClass
+    {
+        public double A { get; set; }
+        public double B { get; set; }
+
+        public Rectangle(string name, double a, double b)
+        {
+            this.ShapeName = name;
+            this.A = a;
+            this.B = b;
+            this.S = a * b;
+        }
+
+        public override void DisplayShape()
+        {
+            var form = new DialogForm(this);
+            form.ShowDialog();
+        }
+    }
+
+    public class RightTriangle : ShapeClass
+    {
+        public double A { get; set; }
+        public double B { get; set; }
+
+        public RightTriangle(string name, double a, double b)
+        {
+            this.ShapeName = name;
+            this.A = a;
+            this.B = b;
+            this.S = a * b/2;
+        }
+
+        public override void DisplayShape()
+        {
+            var form = new DialogForm(this);
+            form.ShowDialog();
+        }
+    }
+
+    public class Circle : ShapeClass
+    {
+        public double R { get; set; }
+
+        public Circle(string name, double r)
+        {
+            this.ShapeName = name;
+            this.R = r;
+            this.S = Math.Round((r * r * 3.14), 2);
+        }
+
+        public override void DisplayShape()
+        {
+            var form = new DialogForm(this);
+            form.ShowDialog();
+        }
+    }
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -20,70 +105,7 @@ namespace ShapesApp3
             InitializeComponent();
         }
 
-        public abstract class ShapeClass
-        {
-            public string ShapeName { get; set; }
-            public double S { get; set; }
-
-            public virtual void DisplayShape()
-            {
-            }
-        }
-
-        class Square : ShapeClass
-        {
-            public double A { get; set; }
-
-            public override void DisplayShape()
-            {
-                S = A * A; //Get area
-                
-                var form = new DialogForm(ShapeName, A.ToString(), "", "", S.ToString());
-                form.ShowDialog();
-            }
-        }
-
-        class Rectangle : ShapeClass
-        {
-            public double A { get; set; }
-            public double B { get; set; }
-
-            public override void DisplayShape()
-            {
-                S = A * B; //Get area
-
-                var form = new DialogForm(ShapeName, A.ToString(), B.ToString(), "", S.ToString());
-                form.ShowDialog();
-            }
-        }
-
-        class RightTriangle : ShapeClass
-        {
-            public double A { get; set; }
-            public double B { get; set; }
-
-            public override void DisplayShape()
-            {
-                S = A * B / 2; //Get area
-
-                var form = new DialogForm(ShapeName, A.ToString(), B.ToString(), "", S.ToString());
-                form.ShowDialog();
-            }
-        }
-
-        class Circle : ShapeClass
-        {
-            public double R { get; set; }
-
-            public override void DisplayShape()
-            {
-                S = Math.Round((R * R * 3.14), 2); //Get area
-
-                var form = new DialogForm(ShapeName, "", "", R.ToString(), S.ToString());
-                form.ShowDialog();
-            }
-        }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'shapesDBDataSet.ShapeTypes' table. You can move, or remove it, as needed.
@@ -98,36 +120,19 @@ namespace ShapesApp3
                 switch (shape.ShapeTypeId)
                 {
                     case (int)EnumShapeTypes.Square:
-                        shapesList.Add(new Square
-                        {
-                            ShapeName = shape.Name,
-                            A = shape.A ?? default(double)
-                        });
+                        shapesList.Add(new Square(shape.Name, shape.A ?? default(double)));
                         break;
 
                     case (int)EnumShapeTypes.Rectangle:
-                        shapesList.Add(new Rectangle
-                        {
-                            ShapeName = shape.Name,
-                            A = shape.A ?? default(double),
-                            B = shape.B ?? default(double)
-                        });
+                        shapesList.Add(new Rectangle(shape.Name, shape.A ?? default(double), shape.B ?? default(double)));
                         break;
 
                     case (int)EnumShapeTypes.RightTriangle:
-                        shapesList.Add(new RightTriangle
-                        {
-                            ShapeName = shape.Name,
-                            A = shape.A ?? default(double),
-                            B = shape.B ?? default(double)
-                        });
+                        shapesList.Add(new RightTriangle(shape.Name, shape.A ?? default(double), shape.B ?? default(double)));
                         break;
+                    
                     case (int)EnumShapeTypes.Circle:
-                        shapesList.Add(new Circle
-                        {
-                            ShapeName = shape.Name,
-                            R = shape.R ?? default(double),
-                        });
+                        shapesList.Add(new Circle(shape.Name, shape.A ?? default(double)));
                         break;
                 }
                 
@@ -182,36 +187,19 @@ namespace ShapesApp3
                 switch (item.ShapeTypeId)
                 {
                     case (int)EnumShapeTypes.Square:
-                        shapesList.Add(new Square
-                        {
-                            ShapeName = item.Name,
-                            A = item.A ?? default(double)
-                        });
+                        shapesList.Add(new Square(item.Name, item.A ?? default(double)));
                         break;
 
                     case (int)EnumShapeTypes.Rectangle:
-                        shapesList.Add(new Rectangle
-                        {
-                            ShapeName = item.Name,
-                            A = item.A ?? default(double),
-                            B = item.B ?? default(double)
-                        });
+                        shapesList.Add(new Rectangle(item.Name, item.A ?? default(double), item.B ?? default(double)));
                         break;
 
                     case (int)EnumShapeTypes.RightTriangle:
-                        shapesList.Add(new RightTriangle
-                        {
-                            ShapeName = item.Name,
-                            A = item.A ?? default(double),
-                            B = item.B ?? default(double)
-                        });
+                        shapesList.Add(new RightTriangle(item.Name, item.A ?? default(double), item.B ?? default(double)));
                         break;
+
                     case (int)EnumShapeTypes.Circle:
-                        shapesList.Add(new Circle
-                        {
-                            ShapeName = item.Name,
-                            R = item.R ?? default(double),
-                        });
+                        shapesList.Add(new Circle(item.Name, item.R ?? default(double)));
                         break;
                 }
             }
