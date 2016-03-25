@@ -19,6 +19,6 @@ D:\repository\ShapesApp3\ShapesApp3\bin\Debug\EntityFramework.dll
 D:\repository\ShapesApp3\ShapesApp3\bin\Debug\EntityFramework.xml
 D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.csprojResolveAssemblyReference.cache
 D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.DialogForm.resources
-D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.ShapeClass.resources
 D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.Properties.Resources.resources
 D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.csproj.GenerateResource.Cache
+D:\repository\ShapesApp3\ShapesApp3\obj\Debug\ShapesApp3.Form1.resources
